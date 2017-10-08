@@ -9,7 +9,6 @@
   ],
   "require": {
     "php": "~5.5.0|~5.6.0|~7.0.0",
-    "salesigniter/module-rental": "^1.0",
     "fooman/tcpdf": "^6.2",
     "fooman/emailattachments-m2": ">=1.0.0"
   },
