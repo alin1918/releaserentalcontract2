@@ -1,0 +1,33 @@
+"Rental contract has already been signed on  %1. You may update the signature below.","Rental contract has already been signed on  %1. You may update the signature below."
+"Signature has been saved to the rental contract","Signature has been saved to the rental contract"
+"Sign Contract","Sign Contract"
+"View Contract","View Contract"
+"Client First Name","Client First Name"
+"Client Last Name","Client Last Name"
+Name:,Name:
+"Signed on:","Signed on:"
+"Rental Contract","Rental Contract"
+"By signing below you are agreeing to the terms of the Rental Contract.","By signing below you are agreeing to the terms of the Rental Contract."
+"Sign Above","Sign Above"
+"Name: ","Name: "
+Clear,Clear
+Name,Name
+"Signed on","Signed on"
+"Sign Rental Contract","Sign Rental Contract"
+Save,Save
+Cancel,Cancel
+"Please provide signature first.","Please provide signature first."
+"Please type in your name below the signature field to confirm agreement.","Please type in your name below the signature field to confirm agreement."
+"Rental Contracts","Rental Contracts"
+"Rental Contract Title","Rental Contract Title"
+"Terms and conditions to include in rental contract","Terms and conditions to include in rental contract"
+"Custom header text to include in the contract","Custom header text to include in the contract"
+"Custom footer text to include in the contract","Custom footer text to include in the contract"
+"Show rental contract signing and attach contract even if order contains no rental products?","Show rental contract signing and attach contract even if order contains no rental products?"
+"Include list of items in the contract","Include list of items in the contract"
+"Include manual hard copy signature field","Include manual hard copy signature field"
+"Show rental contract link and enable digital signatures in customer view order area","Show rental contract link and enable digital signatures in customer view order area"
+"This will show in the my orders area a link ""Rental Contract"" that allows customers to download a rental contract and sign it digitally using their mouse or touchscreen","This will show in the my orders area a link ""Rental Contract"" that allows customers to download a rental contract and sign it digitally using their mouse or touchscreen"
+"Require rental contract signature for checkout","Require rental contract signature for checkout"
+"This will show on checkout review a signature field and customer is required to sign to proceed and place the order","This will show on checkout review a signature field and customer is required to sign to proceed and place the order"
+"Attach Contract PDF to order emails?","Attach Contract PDF to order emails?"

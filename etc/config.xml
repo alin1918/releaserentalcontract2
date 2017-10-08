@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <salesigniter_rental>
+            <contracts>
+                <contract_title>Rental Agreement</contract_title>
+                <terms><![CDATA[This Rental Agreement is effective as of the date of order, and is made between {{config path='general/store_information/name'}}, organized under the laws of {{var store_country}}, with offices at {{config path='general/store_information/address'}}, and  {{var customerfirst}} {{var customerlast}} ("Renter").  Owner and Renter are hereinafter collectively referred to as "Parties".Owner rents to Renter and Renter rents from Owner, subject to the terms and conditions of this Agreement.
+                1.  Term.  This Agreement shall commence on the Effective Date and remain in full force and effect until Equipment is returned to Owner.  Renter shall return the Equipment on the end date stated next to each item, unless terminated earlier consistent with the terms herein.
+                2.  Payment.  Renter shall authorize Owner to charge the debit card or credit card on file with Owner an amount equal to all payments and fees due under this Agreement. Renter shall also pay other charges in accordance with this Agreement due upon return of Equipment, to the fullest extent allowed by law, including but not limited to:
+                    a) charges for optional services, if any;
+                    b) applicable taxes;
+                    c) loss of, or damage or repair to the Equipment, loss of use, diminution of the Equipment's value caused by damage to it or repair to it, and costs to enforce such charges including  administrative fees for processing the claim and legal expenses;
+                    d) an amount corresponding to the rental price points for late return of the Equipment or the highest amount allowable under law;
+                    e) unless due to the fault of Owner, all fines, penalties, court costs and other expenses relating to the Equipment assessed against Owner or the Equipment during the rental Term;
+                    f) all expenses Owner incurs due to Renter's failure to return the Equipment including costs in locating and recovering the Equipment;
+                    i) all costs incurred to collect unpaid monies due; and
+                    k) twenty-five dollars ($25.00) or the maximum amount allowed by law, whichever is greater, for making payment with insufficient funds.
+                    3.  Care of Equipment.  Equipment can only be used in a careful and proper manner and shall not be used in any way that is inconsistent with Owner's instructions or manuals.
+                    4.  Repair and Alterations.  The costs of all repairs made during the Term shall be paid by Renter, including but not limited to labor, material, parts and other items.  Equipment shall not be serviced or repaired and parts and accessories shall not be replaced without Owner’s prior consent.
+                    5.  Restrictions on Use.  Renter shall not:
+                    a) permit the Equipment to be used by any person who is not authorized to use such Equipment;
+                    b) operate or use the Equipment or permit it to be operated or used in violation of law;
+                    c) operate or use the Equipment or permit it to be operated or used to commit a violation of law; and/or
+                    d) operate, use, maintain or store the Equipment in a manner likely to cause damage to the Equipment.
+                    6. Loss or Damage.  Renter shall alert Owner to any damage to the Equipment.  Renter shall be responsible for any loss or damage to Equipment and loss of use, diminution of the Equipment’s value caused by damage to it or repair to it and missing equipment.
+                    7.  Condition of Equipment.  The Condition of Equipment Checklist ("Checklist") attached is hereby incorporate by reference.  Renter acknowledges that Renter has examined the Equipment and that it is in good condition except as otherwise specified in the Checklist.  OWNER MAKES NO WARRANTY, EXPRESS OR IMPLIED, COURSE OF DEALING, COURSE OF PERFORMANCE, USAGE OF TRADE OR OTHERWISE, AND EXPRESSLY EXCLUDES AND DISCLAIMS ALL WARRANTIES AND REPRESENTATIONS OF ANY KIND, INCLUDING ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT.
+                    8. Return of Equipment.  Renter shall return Equipment on the date specified in Section 1 in the same condition as Renter received it, except for normal wear and tear.  Renter shall return the Equipment to the agreed return location.  If Equipment is not returned on said date, Owner reserves the right to take any action necessary to regain possession of the Equipment.
+                    9.  Termination.  This Agreement shall terminate on the date specified in Section 1.  Owner reserves the right to terminate this Agreement earlier upon notice to Renter.
+                    10.  Indemnification and Liability.  Renter shall indemnify, defend and hold harmless Owner from and against any claim, demand, cause of action, loss or liability (including attorney's fees and expenses of litigation) for any property damage or personal injury arising from Renter's use of Equipment by any cause, except to the extent caused by Owner’s gross negligence or willful misconduct.  The provisions of this Article shall survive the termination of this Agreement with respect to any claims or liability accruing before such termination.  IN NO EVENT SHALL OWNER BE LIABLE FOR ANY INDIRECT, SPECIAL OR CONSEQUENTIAL LOSS OR DAMAGES ARISING FROM RENTER'S USE OF EQUIPMENT, INCLUDING BUT NOT LIMITED TO LOSS PROFITS AND LOSS REVENUE, EVEN IF INFORMED OF THE POSSIBILITY OF SUCH DAMAGES.
+                    11.  Ownership.  Owner shall at all times retain ownership and title to the Equipment.  Renter shall immediately notify Owner in the event Equipment is levied, has a lien attached or is threatened with seizure.   Renter shall indemnify and hold Owner harmless against all loss and damages caused by such action.  Equipment shall be deemed at all times to be personal property, whether or not it may be attached to any other property.
+                    12. Waiver.  No failure of Owner to exercise or enforce any of its rights under this Agreement shall act as a waiver of subsequent breaches; and the waiver of any breach shall not act as a waiver of subsequent breaches.  Owner's acceptance of payment with knowledge of a default by Renter shall not constitute a waiver of any breach.
+                    13. Severability.  In the event any provision of this Agreement is held by a court or other tribunal of competent jurisdiction to be unenforceable, that provision will be enforced to the maximum extent permissible under applicable law, and the other provisions of this Agreement will remain in full force and effect. The parties further agree that in the event such provision is an essential part of this Agreement, they will begin negotiations for a suitable replacement provision.
+                    14. Entire Agreement.  This Agreement represents the entire understanding relating to the subject matter hereof and prevails over any prior or contemporaneous, conflicting or additional communications.  This Agreement can only be modified by a written amendment signed by the party against whom enforcement of such modification is sought.
+                    15. Assignment.  Renter may not, without the prior written consent of Owner, transfer or assign this Agreement or any part thereof.  Any attempt to do so shall be a material default of this Agreement and shall be void.
+                    16. Counterparts. This Agreement, and any amendment thereof, may be executed in two or more counterparts, each of which shall be deemed an original, but all of which together shall constitute one and the same document.
+                    Renter acknowledges receipt of a copy of this Agreement and acknowledges having read and understood the foregoing.]]></terms>
+                <header_text></header_text>
+                <footer_text></footer_text>
+                <showwithoutrentals>0</showwithoutrentals>
+                <include_items>1</include_items>
+                <include_manualsignature>0</include_manualsignature>
+                <myorders_enable>0</myorders_enable>
+                <checkoutsignature>0</checkoutsignature>
+                <attachorder>1</attachorder>
+            </contracts>
+        </salesigniter_rental>
+    </default>
+</config>

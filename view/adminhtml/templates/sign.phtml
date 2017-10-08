@@ -1,0 +1,88 @@
+<?php /** @var $this SalesIgniter\RentalContract\Block\Adminhtml\Sign */ ?>
+<script type="text/javascript">// <![CDATA[
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/alert',
+            'signaturepad',
+            'domReady!'
+        ],
+        function ($, alert, SignaturePad) {
+            var popupContent = '<?php echo $this->alreadySigned()?><form name="signature_form" id="signature_form" action="<?php echo $this->getSignUri(); ?>" method="POST">\
+            <input type="hidden" name="order_id" value="<?php echo $this->getOrderId()?>"><input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>"><div class="step-title" data-role="title">Terms & Conditions</div> \
+                <div style="width:100%;overflow-y:auto;height:100px;"><?php echo str_replace(["\r\n", "\r", "\n"], "<br/>", (htmlspecialchars($this->getTerms(), ENT_QUOTES))); ?></div><br /><br /> \
+                ' + $.mage.__('By signing below you are agreeing to the terms of the Rental Contract.') + '<br /> \
+            <div id="signature-pad" class="m-signature-pad"> \
+                <div class="m-signature-pad--body"> \
+                <canvas></canvas> \
+                </div> \
+                <input type="hidden" name="signature_image" id="signature_image"> \
+                <!--<div class="m-signature-pad&#45;&#45;footer">--> \
+                    <div class="description">' + $.mage.__('Sign Above') + '</div> \
+                    <button type="button" class="button clear" data-action="clear">' + $.mage.__('Clear') + '</button> \
+                    <!--</div>--> \
+                </div><br /> \
+            ' + $.mage.__('Name') + ': <input type="text" name="signature_name" id="signature_name" size="35"><br /> \
+                ' + $.mage.__('Signed on') + ': <?php echo $this->getDate(); ?>';
+
+            function applySignature(element) {
+                var wrapper = document.getElementById("signature-pad"),
+                    clearButton = wrapper.querySelector("[data-action=clear]"),
+                    canvas = wrapper.querySelector("canvas"),
+                    signaturePad;
+
+// Adjust canvas coordinate space taking into account pixel ratio,
+// to make it look crisp on mobile devices.
+// This also causes canvas to be cleared.
+                function resizeCanvas() {
+                    // When zoomed out to less than 100%, for some very strange reason,
+                    // some browsers report devicePixelRatio as less than 1
+                    // and only part of the canvas is cleared then.
+                    var ratio = Math.max(window.devicePixelRatio || 1, 1);
+                    canvas.width = canvas.offsetWidth * ratio;
+                    canvas.height = canvas.offsetHeight * ratio;
+                    canvas.getContext("2d").scale(ratio, ratio);
+                }
+
+                window.onresize = resizeCanvas;
+                resizeCanvas();
+
+                signaturePad = new SignaturePad(canvas);
+
+                clearButton.addEventListener("click", function (event) {
+                    signaturePad.clear();
+                });
+
+                // when stroke is done being drawn, update hidden signature text field with signature image data
+                signaturePad.onEnd = function () {
+                    $('#signature_image').val(signaturePad.toDataURL());
+                };
+            }
+
+            $('#sign_contract').on('click', function (event) {
+//                event.preventDefault();
+                alert({
+                    content: popupContent,
+                    title: $.mage.__('Sign Rental Contract'),
+                    buttons: [{
+                        text: $.mage.__('Save'),
+                        class: 'saveSignature',
+                        attr: {},
+                        click: function (event) {
+                            $('#signature_form').submit();
+                        }
+                    },
+                        {
+                            text: $.mage.__('Cancel'),
+                            class: '',
+                            attr: {},
+                            click: function (event) {
+                                this.closeModal(event);
+                            }
+                        }
+                    ]
+                });
+                applySignature();
+            })
+        }
+    );
+    // ]]></script>

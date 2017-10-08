@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Model\DefaultConfigProvider">
+        <plugin name="defaultConfigProviderForSignature" type="SalesIgniter\RentalContract\Model\Plugin\DefaultConfigProviderPlugin" sortOrder="50"/>
+    </type>
+    <!--<type name="Magento\Checkout\Model\PaymentInformationManagement">
+        <plugin name="save-in-quote"
+                type="SalesIgniter\RentalContract\Model\Plugin\PaymentInformationManagementPlugin" sortOrder="12349"/>
+    </type>
+    <type name="Magento\Checkout\Model\GuestPaymentInformationManagement">
+        <plugin name="save-in-guest-quote"
+                type="SalesIgniter\RentalContract\Model\Plugin\GuestPaymentInformationManagementPlugin" sortOrder="12349"/>
+    </type>-->
+    <type name="Magento\Backend\Block\Widget\Context">
+        <plugin name="add_custom_button_sales_veiw" type="SalesIgniter\RentalContract\Model\Plugin\AddSalesOrderButton" sortOrder="1"/>
+    </type>
+</config>

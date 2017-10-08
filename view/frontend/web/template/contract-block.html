@@ -1,0 +1,23 @@
+<!-- hide or show this whole div based on if quote contains rental products -->
+<!-- ko if: showRentalContract -->
+<!--<div data-bind="visible: showRentalContract">-->
+<div class="rentalContract">
+    <div class="step-title" data-role="title" data-bind="i18n: 'Rental Contract'"></div>
+    <textarea data-bind='value: rentalContract' rows="6"></textarea><br/>
+    <span data-bind="i18n: 'By signing below you are agreeing to the terms of the Rental Contract.'"></span><br/>
+    <div id="signature-pad" class="m-signature-pad" data-bind="afterRender: applySignature">
+        <div class="m-signature-pad--body">
+            <canvas class="canvas-signature"></canvas>
+        </div>
+        <input type="hidden" name="payment[signature_image]" id="signature_image">
+        <!--<div class="m-signature-pad&#45;&#45;footer">-->
+        <div class="description" data-bind="i18n: 'Sign Above'"></div>
+        <button type="button" class="button clear" data-action="clear">Clear</button>
+
+        <!--</div>-->
+    </div>
+    <span data-bind="i18n: 'Name: '"></span> <input type="text" name="payment[signature_name]" id="signature_name">
+    <span data-bind="i18n: 'Signed on:'"></span> <!-- ko text: dateNow --><!-- /ko -->
+</div>
+<!--</div>-->
+<!-- /ko -->

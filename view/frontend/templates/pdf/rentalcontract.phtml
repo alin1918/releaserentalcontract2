@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style type="text/css">
+        {{var template_styles|raw}}
+
+        {{css file = "css/email.css"}}
+
+        h3{
+            font-size:20px;
+        }
+
+        body {
+            color: #333333;
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.42857143;
+            font-size: 14px;
+        }
+
+        dl {
+            margin:0px;
+            padding:0px;
+        }
+
+        .item-info,.item-qty,.item-price {
+            border-width: 1px;
+            border-style:solid;
+            border-color:#333333;
+        }
+
+        table.email-items {
+            border-width:1px;
+            border-style:solid;
+            border-color:#333333;
+        }
+
+        .basetext {
+            color:#333333;
+            font-size:12px;
+        }
+
+        .toptext {
+            color:#333333;
+        }
+
+        tfoot.order-totals {
+            margin-top:15px;
+            display:table;
+        }
+
+    </style>
+    <title>{{trans 'Rental Contract'}}</title>
+</head>
+<body>
+
+<!-- begin logo table -->
+<table align="center">
+    <tr>
+        <td>
+
+            <img
+                {{if logo_width}}
+                width="{{var logo_width}}"
+                {{else}}
+                width="180"
+                {{/if}}
+            {{if logo_height}}
+            height="{{var logo_height}}"
+            {{else}}
+            height="52"
+            {{/if}}
+            src="{{var logo_url}}"
+            alt="{{var logo_alt}}"
+            border="0"
+            />
+
+        </td>
+    </tr>
+</table>
+<!-- end logo table -->
+
+<!-- begin message & methods table -->
+<table>
+    <tr >
+        <td>
+            <h1>{{var contract_title}}</h1><br />
+        </td>
+    </tr>
+    <tr >
+        <td>
+            {{depend order.getEmailCustomerNote()}}
+            <table >
+                <tr>
+                    <td>
+                        {{var order.getEmailCustomerNote()|escape|nl2br}}
+                    </td>
+                </tr>
+            </table>
+            {{/depend}}
+            <table >
+                <tr>
+                    <td class="toptext">
+                        <h3>{{trans "Billing Info"}}</h3>
+                        <p>{{var formattedBillingAddress|raw}}</p>
+                    </td>
+                    {{depend order.getIsNotVirtual()}}
+                    <td class="toptext">
+                        <h3>{{trans "Shipping Info"}}</h3>
+                        <p>{{var formattedShippingAddress|raw}}</p>
+                    </td>
+                    {{/depend}}
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="toptext">
+                        <h3>{{trans "Payment Method"}}</h3>
+                        {{var payment_html|raw}}
+                    </td>
+                    {{depend order.getIsNotVirtual()}}
+                    <td class="toptext">
+                        <h3>{{trans "Shipping Method"}}</h3>
+                        <p>{{var order.getShippingDescription()}}</p>
+                    </td>
+                    {{/depend}}
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!-- end message & methods table -->
+
+<!-- start products & terms table -->
+<table width="800">
+    <tr>
+        <td><br/><br/>{{layout handle="salesigniter_rentalcontract_pdf_order_items" order=$order area="frontend"}}</td>
+    </tr>
+    <tr>
+        <td class="basetext">
+            <br /><br />
+            {{var terms|escape|nl2br}}
+        </td>
+    </tr>
+</table>
+<!-- end products & terms table -->
+
+<!-- start signatures table -->
+<table width="800">
+            {{depend include_manualsignature}}
+    <tr>
+        <td>
+            <br /><br /><br /><br />
+            {{trans "Signature of renter:"}} ________________________________  &nbsp;&nbsp;&nbsp; {{trans "Date:"}} ______________________________
+            <br /><br />
+        </td>
+    </tr>
+            {{/depend}}
+            {{depend include_digitalsignature}}
+    <tr>
+        <td>
+            <br /><br /><br /><br />
+            <table width="800">
+                <tr>
+                    <td width="200">
+                        <br /><br /><br /><br />{{trans "Signature of renter:"}} </td>
+                    <td valign="bottom"><img src="{{var digitalsignature}}" align="bottom">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date: </td><td>{{var signaturedate}}</td>
+                </tr>
+            </table>
+            <br /><br />
+        </td>
+    </tr>
+            {{/depend}}
+</table>
+<!-- end signatures table -->
+
+<!-- start footer table -->
+<table>
+    <tr>
+        <td colspan="3">{{var footertext}}</td>
+    </tr>
+</table>
+<!-- end footer table -->
+
+</body>

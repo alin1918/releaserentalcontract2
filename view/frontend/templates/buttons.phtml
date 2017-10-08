@@ -1,0 +1,13 @@
+<?php
+$_order = $block->getOrder();
+if($block->signatureEnabled($_order)):
+?>
+<a class="action reorder" href="<?php /* @escapeNotVerified */ echo $block->getViewUrl($_order) ?>">
+    <span><?php /* @escapeNotVerified */ echo __('View Contract') ?></span>
+</a>
+<?php if($block->hasSignature($_order) == false): ?>
+<a class="action reorder" href="<?php /* @escapeNotVerified */ echo $block->getSignUrl($_order) ?>">
+    <span><?php /* @escapeNotVerified */ echo __('Sign Contract') ?></span>
+</a>
+<?php endif ?>
+<?php endif ?>
