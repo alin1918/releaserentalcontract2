@@ -1,5 +1,5 @@
 {
-  "name": "kjavitz/releaserentalcontract2",
+  "name": "salesigniter/releaserentalcontract2",
   "description": "Salesigniter Rental Contract for Magento 2",
   "type": "magento2-module",
   "version": "1.0.20170626",
@@ -8,8 +8,9 @@
     "AFL-3.0"
   ],
   "require": {
-    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0",
     "fooman/tcpdf": "^6.2",
+    "salesigniter/releaserental2": "*",
     "fooman/emailattachments-m2": ">=1.0.0"
   },
   "autoload": {
