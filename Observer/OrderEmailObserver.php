@@ -2,12 +2,10 @@
 
 namespace SalesIgniter\RentalContract\Observer;
 
-use Magento\Framework\Event\ObserverInterface;
 use Fooman\EmailAttachments\Observer\AbstractObserver as FoomanAbstractObserver;
 
 class OrderEmailObserver extends FoomanAbstractObserver
 {
-
     protected $attachmentFactory;
 
     protected $scopeConfig;
@@ -37,13 +35,13 @@ class OrderEmailObserver extends FoomanAbstractObserver
     {
 
         /**
-         * @var $order \Magento\Sales\Api\Data\OrderInterface
+         * @var \Magento\Sales\Api\Data\OrderInterface
          */
         $order = $observer->getOrder();
         // check if order has rentals and attach pdf to order is enabled
-        if($this->signature->enabledSignature($order,'order') && $this->scopeConfig->getValue('salesigniter_rental/contracts/attachorder')) {
+        if ($this->scopeConfig->getValue('salesigniter_rental/contracts/attachorder')) {
             $this->attachPdf(
-                $this->rentalContractPdf->renderContract($order->getId(),'S'),
+                $this->rentalContractPdf->renderContract($order->getId(), 'S'),
                 $this->filehelper->getContractFilename($order),
                 $observer->getAttachmentContainer()
             );

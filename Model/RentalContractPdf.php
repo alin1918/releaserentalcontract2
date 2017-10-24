@@ -4,7 +4,6 @@ namespace SalesIgniter\RentalContract\Model;
 
 use Magento\Framework\App\TemplateTypesInterface;
 use Magento\Sales\Model\Order\Address\Renderer;
-use TCPDF;
 
 class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
 {
@@ -27,7 +26,7 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
     protected $_filehelper;
 
     /**
-     * @var  \SalesIgniter\Rental\Helper\Calendar
+     * @var \SalesIgniter\Rental\Helper\Calendar
      */
     protected $_calendarHelper;
 
@@ -73,25 +72,21 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
     }
 
     /**
-     * Generates contract
+     * Generates contract.
      *
      * @param        $orderId
      * @param string $returntype
      *
      * @return if $returntype is S then a string
+     *
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\MailException
-     * if $returntype is F then filepath to pdf
-     * if $returntype is I then the pdf
+     *                                                            if $returntype is F then filepath to pdf
+     *                                                            if $returntype is I then the pdf
      */
-
     public function renderContract($orderId, $returntype = 'I')
     {
-        $this->pdf = new TCPDF();
-        $this->pdf->setPrintHeader(false);
-        $this->pdf->setPrintFooter(false);
-        $this->pdf->startPage();
-        $this->pdf->setImageScale(1.53);
+
         /** @var $order \Magento\Sales\Model\Order */
         $order = $this->orderRepository->get($orderId);
 
@@ -139,21 +134,11 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
         $this->vars['include_manualsignature'] =
             ($this->scopeConfig->getValue('salesigniter_rental/contracts/include_manualsignature', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $this->getStoreId()) ? 1 : null);
 
-        $tagvs = [
-            'p' => [0 => ['h' => 0, 'n' => 0], 1 => ['h' => 0, 'n' => 0]],
-//            'dt' =>
-//                array(0 => array('h' => 0, 'n' => 0), 1 => array('h' => 0, 'n' => 0)),
-            'dl' => [0 => ['h' => 0, 'n' => 0], 1 => ['h' => 0, 'n' => 0]],
-            'h6' => [0 => ['h' => 0, 'n' => 0], 1 => ['h' => 0, 'n' => 0]],
-            'h3' => [0 => ['h' => 0, 'n' => 0], 1 => ['h' => 0, 'n' => 0]]
-        ];
-        $this->pdf->setHtmlVSpace($tagvs);
-
         // we have to first get the layout and pull in the template
 
         $templateText = $this->template->setTemplateText($this->getTemplateText());
 
-        /**
+        /*
          * Here I need help with an issue the <br /> are being converted to &lt;br /&gt;
          * in the contract terms after the template is processed.
          * I have traced it to around here:
@@ -169,14 +154,17 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
         $templateText = $this->template->setTemplateText($templateText);
         $templateText = $templateText->getProcessedTemplate($this->vars);
 
-        /**
+        /*
          * Replace <dt>, </dt>, <dd> with nothing
          * Replace </dd> with line break
          * fixes formatting of rental start/end dates
          */
-//        $templateText = str_replace(['<dd>', '<dt>', '</dt>'], '', $templateText);
-//        $templateText = str_replace('</dd>', '<br/>', $templateText);
-//        echo $templateText;
+        //$templateText = str_replace(['<dd>', '<dt>', '</dt>'], '', $templateText);
+        //$templateText = str_replace('</dd>', '<br/>', $templateText);
+        //$templateText = str_replace('%5C', '\\', $templateText);
+        /*$templateTextObj = html5qp($templateText);
+        $templateText = $templateTextObj->html();
+
         $templateText = preg_replace("/<html[^>]+\>/i", '', $templateText);
         $templateText = str_replace('<html>', '', $templateText);
         $templateText = str_replace('</html>', '', $templateText);
@@ -184,31 +172,34 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
         $templateText = str_replace('<br></br>', '<br />', $templateText);
 
         $this->pdf->writeHTML($templateText, false);
-        $this->pdf->endPage();
+        $this->pdf->endPage(); */
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($templateText);
 
         $orderfilename = $this->_filehelper->getContractFilename($order);
-        $filePath = $this->_filehelper->getPdfFilePath();
-        if ($returntype == 'F') {
-            $this->pdf->Output($filePath, $returntype);
-            return $filePath;
-        } elseif ($returntype == 'I') {
-            return $this->pdf->Output($filePath, 'I');
-        } elseif ($returntype == 'S') {
-            return $this->pdf->Output($orderfilename, 'S');
+        $filePath = $this->_filehelper->getPdfFilePath().$orderfilename;
+        if ($returntype == 'S') {
+            return $mpdf->Output($filePath, $returntype);
+        } else {
+            $mpdf->Output();
         }
         exit;
     }
 
     /**
      * Runs content through template processor to replace {{var varname}}
-     * with variables from store or order
+     * with variables from store or order.
      *
      * @param $var
+     *
+     * @return string
+     *
+     * @throws \Magento\Framework\Exception\MailException
      */
-
     protected function processVars($var)
     {
         $this->template->setTemplateText($var);
+
         return $this->template->getProcessedTemplate($this->vars);
     }
 
@@ -220,41 +211,36 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
     protected function getStoreId()
     {
         $store = $this->_storeManager->getStore();
+
         return $store ? $store->getId() : null;
     }
 
     /**
-     * Function copied from vendor/magento/module-sales/Model/Order/Email/Sender.php
+     * Function copied from vendor/magento/module-sales/Model/Order/Email/Sender.php.
      *
      * @param $order
-     *
-     * @return null
      */
-
     protected function getFormattedShippingAddress($order)
     {
-        /** @var $order \Magento\Sales\Model\Order */
+        /* @var $order \Magento\Sales\Model\Order */
         return $order->getIsVirtual()
             ? null
             : $this->addressRenderer->format($order->getShippingAddress(), 'html');
     }
 
     /**
-     * Function copied from vendor/magento/module-sales/Model/Order/Email/Sender.php
+     * Function copied from vendor/magento/module-sales/Model/Order/Email/Sender.php.
      *
      * @param $order
-     *
-     * @return null
      */
-
     protected function getFormattedBillingAddress($order)
     {
-        /** @var $order \Magento\Sales\Model\Order */
+        /* @var $order \Magento\Sales\Model\Order */
         return $this->addressRenderer->format($order->getBillingAddress(), 'html');
     }
 
     /**
-     * Function copied from vendor/magento/module-sales/Model/Order/Email/Sender/OrderSender.php
+     * Function copied from vendor/magento/module-sales/Model/Order/Email/Sender/OrderSender.php.
      *
      * Get payment info block as html
      *
@@ -264,7 +250,7 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
      */
     protected function getPaymentHtml($order)
     {
-        /** @var $order \Magento\Sales\Model\Order */
+        /* @var $order \Magento\Sales\Model\Order */
         return $this->paymentHelper->getInfoBlockHtml(
             $order->getPayment(),
             $this->identityContainer->getStore()->getStoreId()
@@ -272,13 +258,12 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
     }
 
     /**
-     * used by frontend and adminhtml blocks to get terms, not used on pdf generation actually
+     * used by frontend and adminhtml blocks to get terms, not used on pdf generation actually.
      *
      * @param $order
      *
      * @return mixed
      */
-
     public function getTerms($order)
     {
         $this->template = $this->templateFactory->create(
@@ -304,6 +289,7 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel
         }
         // process contract terms through template filter for variables substitution
         $this->template->setTemplateText($this->scopeConfig->getValue('salesigniter_rental/contracts/terms', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $this->getStoreId()));
+
         return $this->template->getProcessedTemplate($this->vars);
         // return $this->escapeJsQuote(json_encode($this->template->getProcessedTemplate($this->vars)));
     }
