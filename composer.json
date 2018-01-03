@@ -2,7 +2,7 @@
   "name": "salesigniter/releaserentalcontract2",
   "description": "Salesigniter Rental Contract for Magento 2",
   "type": "magento2-module",
-  "version": "1.0.20171025",
+  "version": "1.0.20180101",
   "license": [
     "OSL-3.0",
     "AFL-3.0"
