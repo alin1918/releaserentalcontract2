@@ -18,9 +18,17 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <style type="text/css">
-        {{var template_styles|raw}}
+        {
+        {
+            var template_styles | raw
+        }
+        }
 
-        {{css file="css/email.css"}}
+        {
+        {
+            css file = "css/email.css"
+        }
+        }
 
         h3 {
             font-size: 20px;
@@ -50,6 +58,7 @@
             border-width: 1px;
             border-style: solid;
             border-color: #333333;
+            width: 800px;
         }
 
         .basetext {
@@ -63,7 +72,11 @@
 
         tfoot.order-totals {
             margin-top: 15px;
-            display: table;
+            text-align: right;
+        }
+
+        .bsection {
+            margin-top: 20px;
         }
 
     </style>
@@ -76,23 +89,23 @@
     <tr>
         <td>
             <a class="logo" href="{{store url=""}}">
-                <img
-                        {{if logo_width}}
-                        width="{{var logo_width}}"
-                        {{else}}
-                        width="180"
-                        {{/if}}
+            <img
+                    {{if logo_width}}
+                    width="{{var logo_width}}"
+                    {{else}}
+                    width="180"
+                    {{/if}}
 
-                        {{if logo_height}}
-                        height="{{var logo_height}}"
-                        {{else}}
-                        height="52"
-                        {{/if}}
+            {{if logo_height}}
+            height="{{var logo_height}}"
+            {{else}}
+            height="52"
+            {{/if}}
 
-                        src="{{var logo_url}}"
-                        alt="{{var logo_alt}}"
-                        border="0"
-                />
+            src="{{var logo_url}}"
+            alt="{{var logo_alt}}"
+            border="0"
+            />
             </a>
         </td>
     </tr>
@@ -105,14 +118,17 @@
         <td>
             <h1>{{var contract_title}}</h1>
             <p>
-                {{trans 'If you have questions about your order, you can email us at <a href="mailto:%store_email">%store_email</a>.' store_email=$store_email |raw}}
+                {{trans 'If you have questions about your order, you can email us at <a href="mailto:%store_email">%store_email</a>.'
+                store_email=$store_email |raw}}
             </p>
         </td>
     </tr>
     <tr class="email-summary">
         <td>
-            <h1>{{trans 'Your Order <span class="no-link">#%increment_id</span>' increment_id=$order.increment_id |raw}}</h1>
-            <p>{{trans 'Placed on <span class="no-link">%created_at</span>' created_at=$order.getCreatedAtFormatted(1) |raw}}</p>
+            <h1>{{trans 'Your Order <span class="no-link">#%increment_id</span>' increment_id=$order.increment_id |raw}}
+            </h1>
+            <p>{{trans 'Placed on <span class="no-link">%created_at</span>' created_at=$order.getCreatedAtFormatted(1)
+                |raw}}</p>
         </td>
     </tr>
     <tr class="email-information">
@@ -161,58 +177,34 @@
 <!-- end message & methods table -->
 
 <!-- start products & terms table -->
-<table style="margin-top: 40px;" width="800">
-    <tr>
-        <td>
-            {{layout handle="sales_email_order_items" order=$order area="frontend"}}
-        </td>
-    </tr>
-    <tr>
-        <td class="basetext">
-
-            {{var terms|escape|nl2br}}
-        </td>
-    </tr>
-</table>
+<div class="table_order">
+    {{layout handle="sales_email_order_items" order=$order area="frontend"}}
+</div>
+<div class="terms bsection">
+    {{var terms|escape|nl2br}}
+</div>
 <!-- end products & terms table -->
 
 <!-- start signatures table -->
-<table width="800">
-    {{depend include_manualsignature}}
-    <tr>
-        <td>
-            {{trans "Signature of renter:"}} ________________________________ &nbsp;&nbsp;&nbsp; {{trans "Date:"}}
-            ______________________________
-        </td>
-    </tr>
-    {{/depend}}
-    {{depend include_digitalsignature}}
-    <tr>
-        <td>
-            <table width="800">
-                <tr>
-                    <td width="200">
-                        {{trans "Signature of renter:"}} </td>
-                    <td valign="bottom"><img src="{{var digitalsignature}}" align="bottom">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Date:</td>
-                    <td>{{var signaturedate}}</td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    {{/depend}}
-</table>
+
+{{depend include_manualsignature}}
+<div class="signature bsection">
+    <span>{{trans "Signature of renter:"}} ________________________________ </span>&nbsp;&nbsp;&nbsp; <span>{{trans "Date:"}} ______________________________</span>
+</div>
+{{/depend}}
+{{depend include_digitalsignature}}
+<div class="digital_signature bsection">
+    {{trans "Signature of renter:"}} <img src="{{var digitalsignature}}" align="bottom"> {{trans "Date:"}} {{var
+    signaturedate}}
+</div>
+{{/depend}}
+
 <!-- end signatures table -->
 
 <!-- start footer table -->
-<table>
-    <tr>
-        <td colspan="3">{{var footertext}}</td>
-    </tr>
-</table>
+<div class="footer_signature bsection">
+    {{var footertext}}
+</div>
 <!-- end footer table -->
 
 </body>

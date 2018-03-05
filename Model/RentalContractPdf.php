@@ -151,7 +151,8 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel {
 
 		$templateText = $this->template->setTemplateText( $templateText );
 		$templateText = $templateText->getProcessedTemplate( $this->vars );
-
+		//echo( $templateText );
+		//die();
 		/*
 		 * Replace <dt>, </dt>, <dd> with nothing
 		 * Replace </dd> with line break
