@@ -97,6 +97,8 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel {
 		$this->vars['customerfirst']            = $order->getCustomerFirstname();
 		$this->vars['customerlast']             = $order->getCustomerLastname();
 		$this->vars['billingcompany']           = $order->getBillingAddress()->getCompany();
+		//$terms               = $this->scopeConfig->getValue( 'salesigniter_rental/contracts/terms', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $this->getStoreId() );
+		$this->vars['terms'] = $this->getTerms( $order );
 
 		// load digital signature if it exists
 		$this->vars['digitalsignature']         = $this->signature->getDigitalSignature( $order );
@@ -106,8 +108,6 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel {
 
 		// load contract vars
 
-		$terms               = $this->scopeConfig->getValue( 'salesigniter_rental/contracts/terms', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $this->getStoreId() );
-		$this->vars['terms'] = $this->processVars( $terms );
 
 		$contractTitle                = $this->scopeConfig->getValue( 'salesigniter_rental/contracts/contract_title', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $this->getStoreId() );
 		$this->vars['contract_title'] = $this->processVars( $contractTitle );
@@ -279,6 +279,17 @@ class RentalContractPdf extends \Magento\Framework\Model\AbstractModel {
 			$this->vars['customerfirst'] = $order->getCustomerFirstname();
 			$this->vars['customerlast']  = $order->getCustomerLastname();
 		}
+		$signatureImage = $order->getSignatureImagefile();
+		// $signatureFilePath usually pub/media/pdfs/signatures
+		$signatureFilePath = $this->_filehelper->getSignaturePath();
+		// decode signature and save to file in pub/media/pdfs/signatures
+		$orderFilename = $this->_filehelper->getOrderFilename( $order );
+		if ( $signatureImage !== null && $signatureImage !== '' && ! file_exists( $signatureFilePath . $orderFilename ) ) {
+			$this->_filehelper->createDirIfNotExists( $signatureFilePath );
+			$decoded_image = $this->_filehelper->decodeImage( $signatureImage );
+			$this->_filehelper->saveImage( $signatureFilePath . $orderFilename, $decoded_image );
+		}
+
 		// process contract terms through template filter for variables substitution
 		$this->template->setTemplateText( $this->scopeConfig->getValue( 'salesigniter_rental/contracts/terms', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $this->getStoreId() ) );
 

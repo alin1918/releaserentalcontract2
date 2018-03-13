@@ -189,12 +189,16 @@
 
 {{depend include_manualsignature}}
 <div class="signature bsection">
-    <span>{{trans "Signature of renter:"}} ________________________________ </span>&nbsp;&nbsp;&nbsp; <span>{{trans "Date:"}} ______________________________</span>
+    <span>{{trans "Signature of Lessee:"}} ________________________________ </span>&nbsp;&nbsp;&nbsp; <span>{{trans "Date:"}} ______________________________</span>
 </div>
+<div class="signature bsection">
+    <span>{{trans "Signature of Lessor:"}} ________________________________ </span>&nbsp;&nbsp;&nbsp; <span>{{trans "Date:"}} ______________________________</span>
+</div>
+
 {{/depend}}
-{{depend include_digitalsignature}}
+{{depend digitalsignature}}
 <div class="digital_signature bsection">
-    {{trans "Signature of renter:"}} <img src="{{var digitalsignature}}" align="bottom"> {{trans "Date:"}} {{var
+    {{trans "Signature of Lessee:"}} <img src="{{var digitalsignature}}" align="bottom"> {{trans "Date:"}} {{var
     signaturedate}}
 </div>
 {{/depend}}

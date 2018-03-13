@@ -12,5 +12,4 @@
     <event name="sales_quote_payment_import_data_before">
         <observer name="sirent_payment_start" instance="SalesIgniter\RentalContract\Observer\SaveBeforeObserver"/>
     </event>
-
 </config>

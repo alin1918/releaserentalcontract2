@@ -14,4 +14,7 @@
     <type name="Magento\Backend\Block\Widget\Context">
         <plugin name="add_custom_button_sales_veiw" type="SalesIgniter\RentalContract\Model\Plugin\AddSalesOrderButton" sortOrder="1"/>
     </type>
+    <type name="\Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="salesigniter_rentalcontract__magento_sales_api_ordermanagementinterface" type="SalesIgniter\RentalContract\Model\Plugin\Sales\Api\OrderManagementInterface"/>
+    </type>
 </config>

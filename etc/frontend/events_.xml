@@ -7,7 +7,8 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <!-- because signature is taken always on frontend and a required action is that the user completes the order with success-->
-    <event name="checkout_onepage_controller_success_action">
+    <!--<event name="checkout_onepage_controller_success_action">
         <observer name="sirent_savesignature" instance="SalesIgniter\RentalContract\Observer\SaveSignatureObserver"/>
-    </event>
+    </event>-->
+
 </config>

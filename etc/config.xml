@@ -10,36 +10,184 @@
         <salesigniter_rental>
             <contracts>
                 <contract_title>Rental Agreement</contract_title>
-                <terms><![CDATA[This Rental Agreement is effective as of the date of order, and is made between {{config path='general/store_information/name'}}, organized under the laws of {{var store_country}}, with offices at {{config path='general/store_information/address'}}, and  {{var customerfirst}} {{var customerlast}} ("Renter").  Owner and Renter are hereinafter collectively referred to as "Parties".Owner rents to Renter and Renter rents from Owner, subject to the terms and conditions of this Agreement.
-                1.  Term.  This Agreement shall commence on the Effective Date and remain in full force and effect until Equipment is returned to Owner.  Renter shall return the Equipment on the end date stated next to each item, unless terminated earlier consistent with the terms herein.
-                2.  Payment.  Renter shall authorize Owner to charge the debit card or credit card on file with Owner an amount equal to all payments and fees due under this Agreement. Renter shall also pay other charges in accordance with this Agreement due upon return of Equipment, to the fullest extent allowed by law, including but not limited to:
-                    a) charges for optional services, if any;
-                    b) applicable taxes;
-                    c) loss of, or damage or repair to the Equipment, loss of use, diminution of the Equipment's value caused by damage to it or repair to it, and costs to enforce such charges including  administrative fees for processing the claim and legal expenses;
-                    d) an amount corresponding to the rental price points for late return of the Equipment or the highest amount allowable under law;
-                    e) unless due to the fault of Owner, all fines, penalties, court costs and other expenses relating to the Equipment assessed against Owner or the Equipment during the rental Term;
-                    f) all expenses Owner incurs due to Renter's failure to return the Equipment including costs in locating and recovering the Equipment;
-                    i) all costs incurred to collect unpaid monies due; and
-                    k) twenty-five dollars ($25.00) or the maximum amount allowed by law, whichever is greater, for making payment with insufficient funds.
-                    3.  Care of Equipment.  Equipment can only be used in a careful and proper manner and shall not be used in any way that is inconsistent with Owner's instructions or manuals.
-                    4.  Repair and Alterations.  The costs of all repairs made during the Term shall be paid by Renter, including but not limited to labor, material, parts and other items.  Equipment shall not be serviced or repaired and parts and accessories shall not be replaced without Owner’s prior consent.
-                    5.  Restrictions on Use.  Renter shall not:
-                    a) permit the Equipment to be used by any person who is not authorized to use such Equipment;
-                    b) operate or use the Equipment or permit it to be operated or used in violation of law;
-                    c) operate or use the Equipment or permit it to be operated or used to commit a violation of law; and/or
-                    d) operate, use, maintain or store the Equipment in a manner likely to cause damage to the Equipment.
-                    6. Loss or Damage.  Renter shall alert Owner to any damage to the Equipment.  Renter shall be responsible for any loss or damage to Equipment and loss of use, diminution of the Equipment’s value caused by damage to it or repair to it and missing equipment.
-                    7.  Condition of Equipment.  The Condition of Equipment Checklist ("Checklist") attached is hereby incorporate by reference.  Renter acknowledges that Renter has examined the Equipment and that it is in good condition except as otherwise specified in the Checklist.  OWNER MAKES NO WARRANTY, EXPRESS OR IMPLIED, COURSE OF DEALING, COURSE OF PERFORMANCE, USAGE OF TRADE OR OTHERWISE, AND EXPRESSLY EXCLUDES AND DISCLAIMS ALL WARRANTIES AND REPRESENTATIONS OF ANY KIND, INCLUDING ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT.
-                    8. Return of Equipment.  Renter shall return Equipment on the date specified in Section 1 in the same condition as Renter received it, except for normal wear and tear.  Renter shall return the Equipment to the agreed return location.  If Equipment is not returned on said date, Owner reserves the right to take any action necessary to regain possession of the Equipment.
-                    9.  Termination.  This Agreement shall terminate on the date specified in Section 1.  Owner reserves the right to terminate this Agreement earlier upon notice to Renter.
-                    10.  Indemnification and Liability.  Renter shall indemnify, defend and hold harmless Owner from and against any claim, demand, cause of action, loss or liability (including attorney's fees and expenses of litigation) for any property damage or personal injury arising from Renter's use of Equipment by any cause, except to the extent caused by Owner’s gross negligence or willful misconduct.  The provisions of this Article shall survive the termination of this Agreement with respect to any claims or liability accruing before such termination.  IN NO EVENT SHALL OWNER BE LIABLE FOR ANY INDIRECT, SPECIAL OR CONSEQUENTIAL LOSS OR DAMAGES ARISING FROM RENTER'S USE OF EQUIPMENT, INCLUDING BUT NOT LIMITED TO LOSS PROFITS AND LOSS REVENUE, EVEN IF INFORMED OF THE POSSIBILITY OF SUCH DAMAGES.
-                    11.  Ownership.  Owner shall at all times retain ownership and title to the Equipment.  Renter shall immediately notify Owner in the event Equipment is levied, has a lien attached or is threatened with seizure.   Renter shall indemnify and hold Owner harmless against all loss and damages caused by such action.  Equipment shall be deemed at all times to be personal property, whether or not it may be attached to any other property.
-                    12. Waiver.  No failure of Owner to exercise or enforce any of its rights under this Agreement shall act as a waiver of subsequent breaches; and the waiver of any breach shall not act as a waiver of subsequent breaches.  Owner's acceptance of payment with knowledge of a default by Renter shall not constitute a waiver of any breach.
-                    13. Severability.  In the event any provision of this Agreement is held by a court or other tribunal of competent jurisdiction to be unenforceable, that provision will be enforced to the maximum extent permissible under applicable law, and the other provisions of this Agreement will remain in full force and effect. The parties further agree that in the event such provision is an essential part of this Agreement, they will begin negotiations for a suitable replacement provision.
-                    14. Entire Agreement.  This Agreement represents the entire understanding relating to the subject matter hereof and prevails over any prior or contemporaneous, conflicting or additional communications.  This Agreement can only be modified by a written amendment signed by the party against whom enforcement of such modification is sought.
-                    15. Assignment.  Renter may not, without the prior written consent of Owner, transfer or assign this Agreement or any part thereof.  Any attempt to do so shall be a material default of this Agreement and shall be void.
-                    16. Counterparts. This Agreement, and any amendment thereof, may be executed in two or more counterparts, each of which shall be deemed an original, but all of which together shall constitute one and the same document.
-                    Renter acknowledges receipt of a copy of this Agreement and acknowledges having read and understood the foregoing.]]></terms>
+                <terms><![CDATA[This Equipment Lease Agreement is effective as of the date of order, and is made between {{config path='general/store_information/name'}} (the "Lessor"), organized under the laws of {{var store_country}}, with offices at {{config path='general/store_information/address'}}, and  {{var customerfirst}} {{var customerlast}} (the "Lessee").
+
+WITNESSETH that in consideration of the mutual covenants and agreements to be performed and kept during the terms hereof and of any renewal, the Lessor and the Lessee covenant and agree as follows:
+
+1. LEASE
+
+Lessor hereby leases to Lessee, and Lessee hereby leases from Lessor, the equipment shown in the Rental Order # {{var order.increment_id}} (the "Rental Order") executed online or any other means (“Equipment”).
+
+2. TERM
+
+The term of this Lease shall commence on the day Lessee picks up the item from Innocinema Rentals LLC or the first attempt by the parcel carrier to deliver the item, and expire on the last day of the rental period listed as “End Date” as shown on the checkout page, order confirmation, and invoice (“Rental Period”).  The Equipment must be returned shipped, picked up by Lessor if agreed by both parties to do so, or locally delivered by Lessee to Innocinema Rentals LLC during business hours on the last day of the Rental Period.  In the event the last day is a Saturday, Sunday or postal holiday, a shipping extension to the next delivery working day is granted.  Should Lessee return the Equipment using a shipping label not provided by Lessor, and the Equipment is not returned on or before the expected return date, Lessor reserves the right to charge the Lessee additional Rent for the extra time the Equipment was in transit.
+
+3. RENT AND DEPOSIT
+
+If requested or required by Lessor, all rent will be paid in full at the time of check out.
+
+4. USE
+
+Lessee shall use the Equipment in a careful, safe and appropriate manner and shall comply with and conform to all national, state, municipal, and other laws, and regulations in any way relating to the possession, use or maintenance of the Equipment including any manufacturer’s recommendations as to the safe use of the Equipment.
+
+5. REPRESENTATIONS, WARRANTIES, AND AGREEMENTS
+
+Lessee has selected the Equipment without relying upon any suggestion or recommendations of Lessor or its employees and Lessee understands and agrees that Lessor assumes no responsibility for the Equipment as being fit for any particular purpose. Lessor represents and warrants as follows:
+
+(1)   the Equipment is free from known defects and, although used, is in good working order to the best of its knowledge at the inception of the rental;
+
+(2)   Lessor is responsible for routine repair and maintenance of the Equipment prior to rental;
+
+(3)   LESSOR HAS THE RIGHT TO ENTER INTO THE RENTAL OF THE EQUIPMENT. LESSEE AGREES AS FOLLOWS:
+
+EXCEPT AS SET FORTH IN LESSOR’S REPRESENTATIONS AND WARRANTIES ABOVE, THE EQUIPMENT IS RENTED TO LESSEE WITHOUT ANY WARRANTY OR GUARANTY OF ANY KIND, EXPRESS OR IMPLIED, AND SPECIFICALLY, THERE IS NO WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE;
+
+LESSOR SHALL NOT BE HELD RESPONSIBLE WITH RESPECT TO PRODUCTION DOWNTIME, LOSS OF PROFITS, EXTRA EXPENSE, INDIRECT, CONSEQUENTIAL, OR PUNITIVE DAMAGES, PRODUCTION DELAYS; AND
+
+EXCEPT AS SET FORTH IN LESSOR’S REPRESENTATIONS AND WARRANTIES ABOVE, LESSEE IS RESPONSIBLE FOR ALL COSTS ASSOCIATED WITH ANY REPAIR OR REPLACEMENT (WITHOUT DEDUCTION FOR DEPRECIATION) OF THE EQUIPMENT NECESSITATED AS A RESULT OF LESSEE’S USAGE, POSSESSION, TRANSPORTATION OR FAILURE TO RETURN THE EQUIPMENT FOR ANY REASON, INCLUDING, WITHOUT LIMITATION, AS A RESULT OF THE NEGLIGENCE OR WILLFUL MISCONDUCT OF LESSEE, ITS EMPLOYEES, AGENTS, OR CONTRACTORS. LESSEE REPRESENTS WARRANTS AND AGREES THAT LESSEE HAS COMPLIED AND WILL CONTINUE TO COMPLY WITH ALL MANUFACTURER’S SPECIFICATIONS AS TO THE SAFE USE OF THE EQUIPMENT.
+
+6. USED EQUIPMENT
+
+Lessee acknowledges that the Equipment may be used gear and may be cosmetically flawed.  However, Lessor warrants that the Equipment, whether new or used, will be in proper working condition when leased to Lessee.  Should Lessee discover that the Equipment, as received, is not working properly, Lessee agrees to notify Lessor pursuant to Section 18 of this Agreement.
+
+7. TYPOGRAPHICAL ERRORS
+
+In the event a product rental rate is listed incorrectly due to errors in pricing information received from Lessor’s suppliers, Lessor has the right to refuse or cancel any orders placed for products listed at the incorrect rate whether or not Lessee’s credit card has been charged.  Should Lessor cancel Lessee’s order, Lessor will immediately credit Lessee’s account for the incorrect amount paid.
+
+8. ORDER ACCEPTANCE POLICY
+
+Your receipt of an electronic or other form of order confirmation does not signify Lessor’s acceptance of Lessee’s order, nor does it constitute confirmation of Lessor’s offer to rent.  Innocinema Rentals LLC reserves the right at any time after receipt of Lessee’s order to accept or decline Lessee’s order or to supply less than the quantity Lessee ordered of any item for any reason.
+
+9. OUT-OF-STOCK PRODUCTS AND MULTIPLE PRODUCT ORDERS
+
+Lessor will ship, locally deliver, or allow for pick up by Lessee, Equipment as it becomes available.  There may be times when the Equipment Lessee ordered is out-of-stock which will delay fulfilling Lessee’s order.  Lessor makes no guarantees as to availability of Equipment.  Any estimate of availability provided by Lessor is based on the assumption that each of Lessor’s customers return Equipment within the prescribed Rental Period and/or new equipment will arrive to lessor at the estimated time quoted Lessor’s vendor.  Lessor will keep Lessee informed of any Equipment that Lessee has ordered that is out-of-stock and unavailable for immediate shipment, local delivery by Lessor, or for pick up by Lessee.  If Equipment is out-of-stock or unavailable, Lessee may cancel the order at any time prior to shipment, local delivery by Lessor, or pick up by Lessee.  For a multiple product order, Lessor will make every attempt to ship, perform local delivery, or allow for pick by Lessee, all products contained in the order at the same time.  Equipment that is unavailable at the time of shipment, local delivery by Lessor, or pick up by Lessee, will be shipped, locally delivered by Lessor, or picked up by Lessee as it become available unless Lessee notifies Lessor of their alternate wishes to this end.  Lessee will only be charged for shipping or local delivery by Lessor at the rate quoted on Lessee’s purchase receipt.  The entirety of this shipping or local delivery by Lessor charge may be applied to the first Equipment shipment or local delivery by Lessor on an order requiring multiple shipments.
+
+10. SHIPPING, LOCAL DELIVERY, OR PICK UP
+
+All shipping or local delivery costs (including returns) are the sole responsibility of the Lessee.  Lessor does not ship on federal holidays. Lessor may locally deliver on federal holidays on a case by case basis. Lessor cannot guarantee the arrival date of the order as that is outside the control of Lessor.  Any shipping or transit time estimates provided by Lessor are estimates only.  Lessee is encouraged to order in a timely fashion to avoid delays caused by product unavailability, shipping, or local delivery by Lessor.  Lessee agrees to obtain and retain the shipping receipt for all return shipping until Lessor notifies Lessee of Lessor’s receipt of such returned product.
+
+11. CANCELLATIONS
+
+Lessee may cancel a pending reservation up to 24 hours prior to order shipment, local delivery by Lessor, or pick up by Lessee. Failure to do so will result in a 1 day rental (prorated off the 3 day rate) for all Equipment charged to Lessee. Lessee may cancel within 24 hours of placing an order with no fees or penalties, as long as order has not shipped, been locally delivered by Lessor, or been picked up by Lessee. Canceling a shipped, locally delivered by Lessor, or picked up by Lessee, order will result in extra fees.  Lessee may cancel an order once it has shipped, been locally delivered by Lessor, or picked up by Lessee, but such cancellation will be subject to full refund minus: 1 day rental rate + round trip shipping or local delivery by Lessor + cost damage waiver (if applicable).  Lessor reserves the right to cancel any order at any time before delivery occurs at its sole discretion.
+
+12. INSURANCE
+
+Lessee shall at its expense, and at all times during the rental, maintain in full force and effect a limit of insurance covering all Equipment and/or Vehicles rented hereunder, from all sources, as herein provided. All Equipment shall be insured for the full replacement cost without deduction for depreciation. All Vehicles shall be insured at actual cash value. In addition, all Equipment and Vehicles shall be insured for actual verifiable loss of use of the Equipment or Vehicles (i.e. rental charges based on the greater of either the actual verifiable loss of business or the average rental history of the Equipment or Vehicles, as computed for the period of time the Equipment or Vehicle(s) is being repaired and/ or replaced not to exceed 90 days). LESSEE SHALL DELIVER TO LESSOR EVIDENCE OF LESSEE’S INSURANCE COVERAGE PRIOR TO LESSEE TAKING EITHER CONSTRUCTIVE OR ACTUAL POSSESSION OF THE EQUIPMENT AND/OR VEHICLE(S). LESSEE WILL FORWARD A CERTIFICATE OF INSURANCE EVIDENCING LESSEE’S LIABILITY, AUTOMOBILE, PROPERTY AND WORKER’S COMPENSATION INSURANCE WITH A REPUTABLE INSURANCE CARRIER ACCEPTABLE TO LESSOR THAT COMPLIES WITH COVERAGE REQUIREMENTS AS ENUMERATED WITHIN THIS RENTAL AGREEMENT.
+
+Lessee shall be liable for the
+
+(1)   full replacement cost of Equipment without deduction for depreciation,
+
+(2)   actual cash value for Vehicles, and
+
+(3)   loss of use of the Equipment and Vehicles (i.e. rental charges based on the greater of either the actual verifiable loss of business or the average rental history of the Equipment or Vehicles, as computed for the period of time the Equipment or Vehicle(s) is being repaired and/ or replaced not to exceed 90 days), arising or resulting from any failure by Lessee to maintain the policies and limits of insurance set forth above and for any and all claims, losses, liabilities, damages and expenses (including, without limitation, attorneys’ fees and court costs) which, for any reason (other than a final, nonappealable judicial determination that same arose or resulted from the negligence or willful misconduct of Lessor) shall not be covered or paid by Lessee’s insurance, including, without limitation, deductibles and any of same exceeding the coverage and limits of insurance set forth above.
+
+   Property Insurance: Lessee’s insurance shall be on a worldwide, replacement cost basis without deduction for depreciation, shall name Lessor as Loss Payee for loss or damage to the property rented; shall cover “All Risk” of loss or damage to Equipment; shall include the perils “Comprehensive” and “Collision” for Vehicle physical damage coverage; and shall provide for 10 days written notice to Lessor before any policy shall be modified or cancelled. In determining whether the Equipment (not including Vehicles) shall be repaired or replaced, the manufacturer’s judgment shall be conclusive upon both parties. Limits shall be sufficient to encompass all property at risk, regardless of source. Lessor will not accept insurance covering the Equipment that contains a theft exclusion from unattended vehicle(s).
+
+   Liability Insurance: Lessee shall name Lessor as an additional insured on their liability insurance. Lessee’s liability insurance shall meet the following minimum limits: Commercial General Liability $1,000,000 per occurrence and annual aggregate; Automobile Liability (including non-owned and hired automobiles) $1,000,000 combined single limit; Umbrella Liability in the amount $2,000,000 per occurrence and annual aggregate; Foreign Liability, if filming outside of the United States and Canada, $1,000,000 per occurrence; Aircraft Liability, if filming from any aircraft, $5,000,000; Watercraft Liability, if filming from any watercraft, $5,000,000 (Note rented Vehicle(s) will only be driven by licensed driver(s) employed by Lessee). IF VEHICLE IS PROVIDED WITH A DRIVER EMPLOYED BY THE Lessor THE Lessor WILL PROVIDE THE PRIMARY AUTOMOBILE LIABILITY INSURANCE ON THE VEHICLE AND PROOF OF WORKER’S COMPENSATION INSURANCE.
+
+   Lessor Insurance: Lessor will maintain their own insurance program consisting of not less than: Commercial General Liability $1,000,000 per occurrence and annual aggregate; Automobile Liability (including owned, non-owned and hired vehicles) $1,000,000 combined single limit; Umbrella Liability in the amount $2,000,000 per occurrence and annual aggregate, Miscellaneous Equipment and Worker’s Compensation and Employer’s Liability in an amount not less than $1,000,000 Covering Claims arising out of the operations of Lessor. Lessor will provide Lessee evidence of the Coverage enumerated herein upon their request with an insurance carrier acceptable to the Lessee.
+
+   Primary Coverage: Lessee’s property, automobile and liability coverage is the primary coverage for Equipment and/or Vehicle(s) and said coverage must be issued on a non-contributory basis. Furthermore, Lessee’s insurance carrier shall agree that the rights of Lessor under Lessee’s insurance policy shall not be affected by any unintentional act, neglect or breach of condition by Lessee, other than non-payment of premium. Lessee shall remain primarily liable to Lessor for full performance under the terms and conditions of this Equipment Lease in the event of a dispute with their insurance carrier and for uninsured losses. Lapse or cancellation of Lessee’s insurance, as required by this agreement, shall allow Lessor to immediately and automatically terminate this agreement, at its option unless Lessee provides Lessor with written confirmation that such insurance is in full force and effect.
+
+13. TECHNICIAN/OPERATION
+
+Lessee shall only allow the Equipment to be used by qualified technicians and/or, if licensing is required by law for the use of any Equipment, duly licensed personnel, and only in strict accordance with the instructions of the Equipment manufacturer. Such qualified or licensed technicians and personnel should know all the proper protocols to safeguard the public, data and Equipment, and should be competent with regard to the normal operation of the Equipment. Lessee shall keep the Equipment in their sole custody at all times and shall not permit the Equipment to be used in violation of law. Lessee shall process and or view their footage and back-up their content or data in a timely manner.
+
+14. CLEARING OF DATA
+
+Lessee is responsible for clearing any and all images (in any form) prior to the return of the Equipment to Lessor, and Lessee authorizes Lessor to clear the Equipment of any and all images, content or data immediately upon return of the Equipment to Lessor. It shall be the sole responsibility and obligation of Lessee to arrange for the safeguarding and storage of Lessee’s images, content or data prior to the return of the Equipment to Lessor.
+
+15. STORAGE
+
+Lessee bears the risk of loss for all property not provided by Lessor (including but not limited to camera(s), props, sets, and wardrobe) stored and/or transported by Lessor for Lessee’s ultimate use. Lessor shall be acting as the agent of Lessee in storing and/or transporting property, which belongs to third parties.
+
+16. AGE
+
+Due to the value of the Equipment Lessor will not rent Equipment to persons under the age of 18.  Lessee agrees not to allow any person to operate, pick up, or return the Equipment who is under the age of 18.
+
+17. REPAIRS
+
+Lessee agrees not to attempt to repair or materially alter the physical or other makeup of the Equipment under any circumstances regardless of fault.
+
+18. LOSS AND DAMAGE
+
+Lessor shall provide Lessee (with a copy to the accounting department of Customer and another department or person if otherwise designated) with a list of missing and damaged Equipment, if any, as soon as possible after the Equipment has been returned to Lessor. Lessor upon receipt of the compilation of the repair or replacement cost estimates will forward these estimates to Lessee. Lessee shall have the option of making arrangements with Lessor to have their crew member(s) verify the Equipment physically returned to Lessor at a time that is mutually agreeable within the first day of return. Lessee assumes all risk of loss whether or not covered by Lessee’s insurance coverage, except to the extent of any loss arising from the negligence or willful misconduct of Lessor, its employees, agents, or contractors. Lessee is deemed to have taken possession of the Equipment the moment Equipment is in Lessee’s custody and control. In addition, if Lessor ships the Equipment at Lessee’s request, Lessee shall be responsible for both the risk of loss in transit and the transportation costs. Lessee’s responsibility shall include, but not be limited to, risks while in transit by any means (other than transit supplied by Lessor), at all locations named and unnamed, at all studios, while on Lessee’s premises, and while in Lessee’s use. Lessee is responsible for picking up and returning the Equipment to/from the rental facility during normal business hours. If Lessor delivers and/or picks up the Equipment, Lessor will be responsible for the risk of loss in transit while the Equipment is in the custody of Lessor and Lessee will be responsible for transportation costs.
+
+ In the event of damage of any kind whatever to the Equipment, Lessor may:
+
+ (1)   charge Lessee’s credit card for the full cost of repair; and
+
+ (2)   repair the Equipment using a vendor at Lessor’s sole discretion.
+
+ In the event the Equipment is damaged beyond repair or is lost, Lessor may:
+
+ (3)   charge Lessee the full replacement value without deduction for depreciation of the lost or damaged Equipment.  In addition to repair or replacement fees, Lessor may charge Lessee’s credit card for a “Loss of Use Fee” in the event Lessee did not purchase a damage waiver at the time of the initial rental order.  “Loss of Use Fee” is equal to the daily rental fees Lessor would have been entitled to receive for the Equipment had it not been damaged or lost.  In the event the RFID tags or serial number bar code sticker becomes lost or stolen during the Rental Period, Lessee will pay an additional tag replacement fee of $12 per tag per item of Equipment.  In the event the Equipment becomes damaged beyond repair, Lessee shall pay Lessor the full replacement value of the Equipment without deduction for depreciation.  Lessee must ensure that the Equipment, when returned to Lessor, is clean.  Should the returned Equipment be deemed dirty in Lessor’s sole judgment, Lessor reserves the right to charge Lessee a “Cleaning Fee”.
+
+19. NON-WORKING EQUIPMENT
+
+Lessee shall notify Lessor within 3 hours of receipt of Equipment of any malfunction and/or alleged damage to such Equipment. In the event Equipment is not functioning and/or damaged other than as a result of Lessee’s negligence or willful acts, Lessee must not attempt to repair or modify the equipment himself/herself.  Lessee must return such non-working Equipment to Lessor and Lessor will either replace the non-working Equipment with a functioning equivalent (“Replacement Equipment”) or issue Lessee a credit or full refund of all rental charges paid by Lessee at Lessee’s option. The rental charges for all such non-working Equipment so returned will commence upon Lessee’s receipt of the replacement Equipment.  Once Lessor receives notification of suspected damage of Equipment in transit, Lessor shall send such damaged Equipment to the manufacturer for inspection and repair.  Lessee and Lessor hereby agree to be bound by the damage report provided by such manufacturer as to the cause and liability of such damage.
+
+20. SURRENDER
+
+Upon the expiration or earlier termination of this Lease, Lessee shall return the Equipment to Lessor in good repair, condition and working order, ordinary wear and tear resulting from proper use thereof excepted, by delivering the Equipment at Lessee's cost and expense via the shipping method specified by Lessor.  Lessee shall be responsible for proper packaging of the returned Equipment using shipping and packaging materials provided by Lessor in the order shipment.  Lessor’s acceptance of the Equipment upon return by Lessee shall not represent Lessor’s determination as to the condition of the returned Equipment.  Lessor reserves the right to inspect the Equipment within a reasonable time after the return of the Equipment and make a determination as to whether such returned Equipment was damaged during the Rental Period.
+
+21. EARLY SURRENDER
+
+If Lessee surrenders the Equipment with at least 7 days remaining in the Rental Period, Lessor will issue Lessee an “Early Return Credit” for the remaining unused time.  Early Return Credit is a discount code that may be applied towards future rentals.  No Early Return Credit will be issued for return of Equipment with less than 7 days remaining on the Rental Period.  No Early Return Credit will be issued for return of Equipment with an original Rental Period of under 4 days.  To receive an “Early Return Credit”, Lessee must request such credit at the time of early surrender via email or phone call to Lessor’s Customer Service Department.
+
+22. TAXES
+
+Lessee shall keep the Equipment free and clear of all levies, liens and encumbrances. Lessee, or Lessor at Lessee's expense, shall report, pay and discharge when due all license and registration fees, assessments, sales, use and property taxes, gross receipts, taxes arising out of receipts from use or operation of the Equipment, together with any penalties or interest thereon, imposed by any state, federal or local government or any agency, or department thereof, whether or not the same shall be assessed against or in the name of Lessor or Lessee.  Lessee shall indemnify and hold Lessor harmless from any taxes, fees, and penalties arising out of Lessee’s lease, use and possession of the Equipment except for those taxes, fees and penalties based upon Lessor’s income.
+
+23. INDEMNITY
+
+Lessee agrees to indemnify, defend and hold harmless Lessor and its officers, employees, agents and licensees against any and all claims, actions, damages, liabilities and expenses arising from the use, possession or operation of the Equipment and by whomsoever operated at the direction of the Lessee, Lessee’s breach of any representations or warranties made herein, or from the negligence or willful conduct of Lessee, its employees, agents or contractors. This indemnification shall survive the term of the rental agreement. Lessor agrees to indemnify, defend and hold harmless Lessee and its officers, employees, agents and licensees solely as respects bodily injury and property damage claims, actions, damages, liabilities and expenses arising from Lessor’s negligence or willful misconduct of Lessor, or that of Lessor’s employees, agents, or contractors, Lessor not having the right to rent the Equipment or Lessor’s failure to maintain insurance enumerated in 12c above. This indemnification shall survive the term of this Equipment Lease.
+
+24. DEFAULT
+
+ In the event that Lessee
+
+ (1)   fails to pay any rent or other amount herein provided within ten (10) days after the same is due and payable,
+
+ (2)   fails to obtain or maintain the insurance required under Section 12 above throughout the rental term, or
+
+ (3)   becomes insolvent, files a petition in bankruptcy, seeks the appointment of a receiver (or has a receiver appointed) for all or a substantial portion of its property, or has an involuntary petition in bankruptcy filed against it, Lessee shall be in default hereunder. Upon such default, Lessor shall, in its sole discretion, and to the extent permitted by law, have the right to exercise any one or more of the following remedies:
+
+   To charge Lessee’s credit card on file for all amounts due (including any late fees) and owing.
+   To sue for and recover all rents, and other payments, then accrued or thereafter accruing.
+   To take possession of the Equipment, without any prior notice to Lessee, the receiver, bankruptcy trustee, assignee for the benefit of the creditors, or levying officer. Lessee hereby grants to Lessor the right and permission to lawfully enter the Lessee’s premises where the Equipment is kept following any such default for the purpose of repossessing the Equipment without liability of trespass or any liability for any damage that might occur as a result of such entry.
+   To terminate this Lease.
+   To pursue any other remedy at law or in equity.
+ Notwithstanding any repossession or any other action which Lessor may take, Lessee shall be and remain liable for the full performance of all obligations on the part of the Lessee to be performed under this Lease. All of Lessor's remedies are cumulative, and may be exercised concurrently or separately.
+
+25. BANKRUPTCY
+
+Neither this Lease nor any interest therein is assignable or transferable by operation of law. If any proceeding under the Bankruptcy Act, as amended, is commenced by or against the Lessee, or if the Lessee is adjudged insolvent, or if Lessee makes any assignment for the benefit of his creditors, or if a writ of attachment or execution is levied on the Equipment and is not released or satisfied within ten (10) days thereafter, or if a receiver is appointed in any proceeding or action to which the Lessee is a party with authority to take possession or control of the Equipment, Lessor shall have and may exercise the option to, without notice, immediately terminate the Lease. The Lease shall not be treated as an asset of Lessee after the exercise of said option.
+
+26. TITLE
+
+Lessee specifically acknowledges Lessor’s superior title and ownership of the Equipment and must keep the Equipment free of all liens, levies and encumbrances except those caused by or resulting from Lessor's acts. Lessee may not assign or pledge the Equipment.
+
+27. ADDITIONAL DOCUMENTS
+
+If Lessor shall so request, Lessee shall execute and deliver to Lessor such documents as Lessor shall deem necessary or desirable for purposes of recording or filing to protect the interest of Lessor in the Equipment including, but not limited to a UCC financing statement.
+
+28. ENTIRE AGREEMENT
+
+This instrument constitutes the entire agreement between the parties on the subject matter hereof and it shall not be amended, altered or changed except by a further writing signed by the parties hereto.
+
+29. NOTICES
+
+Service of all notices under this Agreement shall be sufficient if given personally or by certified mail, return receipt requested, postage prepaid, at the address hereinafter set forth, or to such address as such party may provide in writing from time to time.
+
+30. GOVERNING LAW
+
+This Equipment Lease has been entered into in the State of Georgia and shall be governed by laws of the State of Georgia, without reference to any conflicts of law principles. Lessee and Lessor agree to the State of Georgia having the sole jurisdiction to govern any and all disputes arising between Lessee and Lessor as respects the consignment of Equipment. If any portion of this agreement is found to be invalid, unenforceable, waived or otherwise deficient, it shall be severable from the remaining provisions and all other provisions shall remain in full force and effect.
+
+31. DEFINITIONS
+
+As used in the Rental Order and these Terms and Conditions, the following terms have the following meanings: “Lessee” shall mean the entities and/or individuals so identified on the Rental Order; “Equipment” shall mean all equipment and/or vehicle(s) so listed in the Rental Order; and, “Vehicle” shall mean those motorized and other means of conveyance so listed in the Rental Order.]]></terms>
                 <header_text></header_text>
                 <footer_text></footer_text>
                 <showwithoutrentals>0</showwithoutrentals>
