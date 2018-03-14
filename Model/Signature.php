@@ -91,7 +91,7 @@ class Signature extends \Magento\Framework\Model\AbstractModel {
 		}
 		$showRentalContract = false;
 		if ( (bool) $this->scopeConfig->getValue( 'salesigniter_rental/contracts/checkoutsignature' ) ) {
-			if ( $containsRentals || (bool) $this->scopeConfig->getValue( 'salesigniter_rental/contracts/showwithoutrentals' ) ) {
+			if ( $containsRentals || (bool) $this->scopeConfig->getValue( 'salesigniter_rental/contracts/showwithoutrentals', \Magento\Store\Model\ScopeInterface::SCOPE_STORE ) ) {
 				$showRentalContract = true;
 			}
 		}
