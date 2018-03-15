@@ -72,13 +72,15 @@ class SaveBeforeObserver implements ObserverInterface {
 	 * @throws \Magento\Framework\Exception\InputException
 	 */
 	public function execute( EventObserver $observer ) {
-		$paymentData    = $observer->getEvent()->getInput()->getAdditionalData();
-		$extAttributes  = $paymentData['extension_attributes'];
-		$signatureImage = $extAttributes->getSignatureImage();
-		// save signature name text to quote. Not necessary to save signature quote filename as it will change
-		$signatureText = $extAttributes->getSignatureName();
-		$this->checkoutSession->setSignatureText( $signatureText );
-		$this->checkoutSession->setSignatureImage( $signatureImage );
+		$paymentData = $observer->getEvent()->getInput()->getAdditionalData();
+		if ( isset( $paymentData['extension_attributes'] ) ) {
+			$extAttributes  = $paymentData['extension_attributes'];
+			$signatureImage = $extAttributes->getSignatureImage();
+			// save signature name text to quote. Not necessary to save signature quote filename as it will change
+			$signatureText = $extAttributes->getSignatureName();
+			$this->checkoutSession->setSignatureText( $signatureText );
+			$this->checkoutSession->setSignatureImage( $signatureImage );
+		}
 
 		return $this;
 	}
