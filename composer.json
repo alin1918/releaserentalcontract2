@@ -2,7 +2,7 @@
   "name": "salesigniter/releaserentalcontract2",
   "description": "Salesigniter Rental Contract for Magento 2",
   "type": "magento2-module",
-  "version": "1.0.20180710",
+  "version": "1.0.20180711",
   "license": [
     "OSL-3.0",
     "AFL-3.0"
@@ -11,7 +11,7 @@
     "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0",
     "mpdf/mpdf": "^7.0",
     "salesigniter/releaserental2": "*",
-    "fooman/emailattachments-m2": "2.0.7"
+    "fooman/emailattachments-m2": ">=1.0.0"
   },
   "autoload": {
     "files": [
