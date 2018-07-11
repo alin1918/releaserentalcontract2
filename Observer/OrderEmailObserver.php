@@ -42,8 +42,9 @@ class OrderEmailObserver extends FoomanAbstractObserver {
 		\SalesIgniter\RentalContract\Model\RentalContractPdf $rentalContractPdf,
 		\SalesIgniter\RentalContract\Helper\Files $filehelper,
 		\Magento\Store\Model\StoreManagerInterface $storeManager,
-		\SalesIgniter\Rental\Helper\Data $helperRental
-
+		\SalesIgniter\Rental\Helper\Data $helperRental,
+        \Fooman\EmailAttachments\Model\TermsAndConditionsAttacher $termsAttacher,
+        \Fooman\EmailAttachments\Model\ContentAttacher $contentAttacher
 	) {
 		$this->rentalContractPdf = $rentalContractPdf;
 		$this->signature         = $signature;
@@ -52,6 +53,9 @@ class OrderEmailObserver extends FoomanAbstractObserver {
 		$this->filehelper        = $filehelper;
 		$this->helperRental      = $helperRental;
 		$this->storeManager      = $storeManager;
+        
+        $this->termsAttacher = $termsAttacher;
+        $this->contentAttacher = $contentAttacher;        
 	}
 
 	protected function getStoreId() {
