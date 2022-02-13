@@ -11,7 +11,7 @@
     "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0",
     "mpdf/mpdf": "^7.0",
     "salesigniter/releaserental2": "*",
-    "fooman/emailattachments-implementation-m2": "104.0.0"
+    "fooman/emailattachments-implementation-m2": "^104.0.0|^107.0"
   },
   "autoload": {
     "files": [
